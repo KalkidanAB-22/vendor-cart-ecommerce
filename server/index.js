@@ -4,8 +4,6 @@ const express = require("express");
 const cors = require("cors");
 const pool = require("./db");
 
-require("dotenv").config();
-
 const app = express();
 
 
@@ -13,12 +11,11 @@ const app = express();
 // Middleware
 // --------------------
 
-
 app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://your-vercel-domain.vercel.app"
+      process.env.CLIENT_URL
     ],
     credentials: true
   })
@@ -28,7 +25,7 @@ app.use(express.json());
 
 
 // --------------------
-// Health Check Route
+// Health Check
 // --------------------
 
 app.get("/", (req, res) => {
@@ -40,7 +37,7 @@ app.get("/", (req, res) => {
 
 
 // --------------------
-// Database Test Route
+// Database Test
 // --------------------
 
 app.get("/db-test", async (req, res) => {
@@ -73,7 +70,7 @@ app.get("/db-test", async (req, res) => {
 
 
 // --------------------
-// Get Products
+// Products API
 // --------------------
 
 app.get("/products", async (req, res) => {
@@ -96,9 +93,7 @@ app.get("/products", async (req, res) => {
     );
 
 
-    res.status(200).json(
-      result.rows
-    );
+    res.json(result.rows);
 
 
   } catch (error) {
@@ -119,7 +114,7 @@ app.get("/products", async (req, res) => {
 
 
 // --------------------
-// 404 Handler
+// 404
 // --------------------
 
 app.use((req, res) => {
@@ -132,7 +127,7 @@ app.use((req, res) => {
 
 
 // --------------------
-// Server Start
+// Start Server
 // --------------------
 
 const PORT = process.env.PORT || 10000;
@@ -150,6 +145,7 @@ app.listen(PORT, async () => {
     await pool.query(
       "SELECT 1"
     );
+
 
     console.log(
       "PostgreSQL connected successfully ✅"
