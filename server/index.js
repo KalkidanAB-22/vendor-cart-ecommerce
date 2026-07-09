@@ -4,6 +4,8 @@ const express = require("express");
 const cors = require("cors");
 const pool = require("./db");
 
+require("dotenv").config();
+
 const app = express();
 
 
@@ -11,15 +13,14 @@ const app = express();
 // Middleware
 // --------------------
 
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      process.env.CLIENT_URL
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: process.env.CLIENT_URL,
+    credentials:true
   })
 );
+
 
 app.use(express.json());
 
