@@ -1,16 +1,8 @@
 import { useCart } from "../context/CartContext";
 
-import headphones from "../assets/headphones.png";
-import laptopPro from "../assets/laptop-pro.png";
-import nikeAirMax from "../assets/nike-air-max.png";
-import nikeShoes from "../assets/nike-shoes.png";
 import hero from "../assets/hero.png";
 
 const images = {
-  headphones,
-  laptopPro,
-  nikeAirMax,
-  nikeShoes,
   hero,
 };
 
@@ -22,28 +14,33 @@ export default function ProductCard({ product }) {
   return (
     <div
       className="
-      glass
+      bg-white/10
+      backdrop-blur-xl
+      border
+      border-white/10
       rounded-2xl
       overflow-hidden
-      flex
-      flex-col
-      hover:-translate-y-2
+      hover:scale-[1.02]
       transition
       duration-300
+      flex
+      flex-col
       "
     >
+      {/* IMAGE */}
+
       <div
         className="
-        h-52
+        h-64
         overflow-hidden
-        bg-black/20
         "
       >
         <img
-          src={
-            product.image_url || "https://placehold.co/600x600?text=No+Image"
-          }
+          src={productImage}
           alt={product.name}
+          onError={(e) => {
+            e.currentTarget.src = hero;
+          }}
           className="
           w-full
           h-full
@@ -54,6 +51,8 @@ export default function ProductCard({ product }) {
           "
         />
       </div>
+
+      {/* CONTENT */}
 
       <div
         className="
@@ -80,7 +79,7 @@ export default function ProductCard({ product }) {
           mt-2
           "
         >
-          Premium Quality Product
+          {product.description || "Premium Quality Product"}
         </p>
 
         <div
