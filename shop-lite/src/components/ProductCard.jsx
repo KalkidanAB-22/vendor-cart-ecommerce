@@ -1,42 +1,118 @@
 import { useCart } from "../context/CartContext";
-import images from "../images";
+
+import headphones from "../assets/headphones.png";
+import laptopPro from "../assets/laptop-pro.png";
+import nikeAirMax from "../assets/nike-air-max.png";
+import nikeShoes from "../assets/nike-shoes.png";
+import hero from "../assets/hero.png";
+
+const images = {
+  headphones,
+  laptopPro,
+  nikeAirMax,
+  nikeShoes,
+  hero,
+};
 
 export default function ProductCard({ product }) {
-   console.log("PRODUCT DATA:", product);
   const { addToCart } = useCart();
 
-  return (
-    <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden flex flex-col">
+  const productImage = product.image_url || images[product.image] || hero;
 
-      {/* IMAGE */}
-      <div className="h-52 overflow-hidden bg-gray-100">
-      
-         <img
-  src={images[product.image]}
-  alt={product.name}
-  className="w-full h-full object-cover hover:scale-105 transition duration-300"
-/>
+  return (
+    <div
+      className="
+      glass
+      rounded-2xl
+      overflow-hidden
+      flex
+      flex-col
+      hover:-translate-y-2
+      transition
+      duration-300
+      "
+    >
+      <div
+        className="
+        h-52
+        overflow-hidden
+        bg-black/20
+        "
+      >
+        <img
+          src={
+            product.image_url || "https://placehold.co/600x600?text=No+Image"
+          }
+          alt={product.name}
+          className="
+          w-full
+          h-full
+          object-cover
+          hover:scale-110
+          transition
+          duration-500
+          "
+        />
       </div>
 
-      {/* CONTENT */}
-      <div className="p-4 flex flex-col flex-1">
-        
-        <h2 className="font-semibold text-gray-800 text-lg">
+      <div
+        className="
+        p-5
+        flex
+        flex-col
+        flex-1
+        "
+      >
+        <h2
+          className="
+          text-xl
+          font-bold
+          text-white
+          "
+        >
           {product.name}
         </h2>
 
-        <p className="text-gray-500 text-sm mt-1">
+        <p
+          className="
+          text-gray-300
+          text-sm
+          mt-2
+          "
+        >
           Premium Quality Product
         </p>
 
-        <div className="mt-auto flex items-center justify-between pt-4">
-          <span className="font-bold text-black">
+        <div
+          className="
+          mt-auto
+          flex
+          justify-between
+          items-center
+          pt-5
+          "
+        >
+          <span
+            className="
+            text-green-400
+            font-bold
+            text-lg
+            "
+          >
             €{product.price}
           </span>
 
           <button
             onClick={() => addToCart(product)}
-            className="px-3 py-2 text-sm bg-black text-white rounded-lg hover:bg-gray-800 transition"
+            className="
+            bg-green-600
+            hover:bg-green-500
+            px-4
+            py-2
+            rounded-xl
+            text-white
+            transition
+            "
           >
             Add
           </button>
