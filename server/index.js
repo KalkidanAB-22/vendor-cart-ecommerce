@@ -23,10 +23,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "VITE_API_URL=https://vendor-cart-api.up.railway.app",
-    ],
+    origin: process.env.CLIENT_URL,
     credentials: true,
   }),
 );
