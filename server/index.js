@@ -23,7 +23,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://shop-lite-drab.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "VITE_API_URL=https://vendor-cart-api.up.railway.app",
+    ],
     credentials: true,
   }),
 );
@@ -47,7 +50,7 @@ app.use("/sales", salesRoutes);
 
 app.get("/", (req, res) => {
   res.json({
-    message: "Shop Lite API is running 🚀",
+    message: "Vendor Cart API is running 🚀",
     status: "healthy",
   });
 });

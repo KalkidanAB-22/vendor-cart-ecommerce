@@ -33,7 +33,7 @@ export default function Navbar() {
           text-white
           "
         >
-          🛒 MiniShop
+          🛒 Vendor Cart
         </Link>
 
         {/* DESKTOP MENU */}
