@@ -131,19 +131,33 @@ https://vendor-cart-api-production.up.railway.app
 ## 👤 Customer Features
 
 ✅ User registration
+
 ✅ User login
+
 ✅ JWT authentication
+
 ✅ Protected routes
+
 ✅ User profile
+
 ✅ Product browsing
+
 ✅ Product searching
+
 ✅ Category filtering
+
 ✅ Cloudinary product images
+
 ✅ Shopping cart
+
 ✅ Cart quantity updates
+
 ✅ Order creation
+
 ✅ Checkout system
+
 ✅ Stripe payment integration
+
 ✅ Order history
 
 ---
