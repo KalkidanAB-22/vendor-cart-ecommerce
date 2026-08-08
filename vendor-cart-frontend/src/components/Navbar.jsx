@@ -28,12 +28,21 @@ export default function Navbar() {
         <Link
           to="/"
           className="
-          text-2xl
-          font-bold
-          text-white
-          "
+    flex
+    items-center
+    gap-2
+    text-2xl
+    font-bold
+    text-white
+  "
         >
-          🛒 Vendor Cart
+          <img
+            src="/vendor-cart-logo.png"
+            alt="Vendor Cart"
+            className="w-10 h-10 rounded-lg object-cover"
+          />
+
+          <span>Vendor Cart</span>
         </Link>
 
         {/* DESKTOP MENU */}
