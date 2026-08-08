@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export default function Register() {
@@ -18,63 +19,143 @@ export default function Register() {
     try {
       await register(name, email, password);
 
-      navigate("/");
+      navigate("/login");
     } catch (err) {
       setError(err.message);
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white shadow-xl rounded-xl p-8 w-96"
+    <div
+      className="
+      min-h-screen
+      flex
+      items-center
+      justify-center
+      bg-slate-950
+      px-4
+    "
+    >
+      <div
+        className="
+        w-full
+        max-w-md
+        p-8
+        rounded-3xl
+        bg-white/10
+        backdrop-blur-xl
+        border
+        border-white/20
+        shadow-xl
+      "
       >
-        <h1 className="text-2xl font-bold mb-5">Create Account</h1>
-
-        {error && <p className="text-red-500 mb-3">{error}</p>}
-
-        <input
-          className="border p-2 w-full mb-3 rounded"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-
-        <input
+        <h1
           className="
-w-full
-mb-4
-p-3
-rounded-xl
-bg-black/40
-border
-border-white/20
-"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+          text-3xl
+          font-bold
+          text-white
+          text-center
+          mb-6
+        "
+        >
+          Create Account
+        </h1>
 
-        <input
-          className="border p-2 w-full mb-3 rounded"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        {error && (
+          <p
+            className="
+            text-red-400
+            text-sm
+            mb-4
+            text-center
+          "
+          >
+            {error}
+          </p>
+        )}
 
-        <input
-          className="border p-2 w-full mb-3 rounded"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            className="
+              w-full
+              mb-4
+              p-3
+              rounded-xl
+              bg-black/40
+              border
+              border-white/20
+              text-white
+              outline-none
+            "
+            placeholder="Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
 
-        <button className="bg-black text-white w-full py-2 rounded">
-          Register
-        </button>
-      </form>
+          <input
+            className="
+              w-full
+              mb-4
+              p-3
+              rounded-xl
+              bg-black/40
+              border
+              border-white/20
+              text-white
+              outline-none
+            "
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <input
+            className="
+              w-full
+              mb-6
+              p-3
+              rounded-xl
+              bg-black/40
+              border
+              border-white/20
+              text-white
+              outline-none
+            "
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button
+            className="
+              w-full
+              py-3
+              rounded-xl
+              bg-green-600
+              hover:bg-green-500
+              text-white
+              font-semibold
+              transition
+            "
+          >
+            Register
+          </button>
+        </form>
+
+        <p
+          className="
+          text-gray-300
+          text-center
+          mt-5
+        "
+        >
+          Already have an account?{" "}
+          <Link to="/login" className="text-green-400">
+            Login
+          </Link>
+        </p>
+      </div>
     </div>
   );
 }
