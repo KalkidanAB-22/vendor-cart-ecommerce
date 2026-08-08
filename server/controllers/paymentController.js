@@ -1,76 +1,70 @@
-const pool = require("../db");
+const Stripe = require("stripe");
 
-// CREATE PAYMENT
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 exports.createPayment = async (req, res) => {
   try {
-    const userId = req.user.id;
+    const { items, payment_method } = req.body;
 
-    const { order_id, payment_method } = req.body;
+    // Validate payment method
 
-    // Check order belongs to user
-
-    const order = await pool.query(
-      `
-            SELECT *
-            FROM orders
-            WHERE id=$1
-            AND user_id=$2
-            `,
-
-      [order_id, userId],
-    );
-
-    if (order.rows.length === 0) {
-      return res.status(404).json({
-        message: "Order not found",
+    if (!payment_method) {
+      return res.status(400).json({
+        message: "Payment method is required",
       });
     }
 
-    const result = await pool.query(
-      `
-            INSERT INTO payments
-            (
-            order_id,
-            payment_method,
-            payment_status,
-            transaction_id
-            )
+    // Level 1:
+    // Only Stripe is available
 
-            VALUES($1,$2,$3,$4)
+    if (payment_method !== "stripe") {
+      return res.status(400).json({
+        message: "This payment method is not available yet",
+      });
+    }
 
-            RETURNING *
+    // Validate cart
 
-            `,
+    if (!items || items.length === 0) {
+      return res.status(400).json({
+        message: "Cart is empty",
+      });
+    }
 
-      [order_id, payment_method, "completed", "TXN-" + Date.now()],
-    );
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
 
-    // update order status
+      line_items: items.map((item) => ({
+        price_data: {
+          currency: "usd",
 
-    await pool.query(
-      `
-            UPDATE orders
+          product_data: {
+            name: item.name,
+          },
 
-            SET status='paid'
+          unit_amount: Math.round(Number(item.price) * 100),
+        },
 
-            WHERE id=$1
+        quantity: item.quantity,
+      })),
 
-            `,
+      mode: "payment",
 
-      [order_id],
-    );
+      success_url: "https://vendor-cart-app.vercel.app/payment-success",
 
-    res.status(201).json({
-      message: "Payment successful",
+      cancel_url: "https://vendor-cart-app.vercel.app/payment-cancel",
+    });
 
-      payment: result.rows[0],
+    res.status(200).json({
+      url: session.url,
     });
   } catch (error) {
-    console.error("Payment error:", error);
+    console.error("Stripe payment error:", error);
 
     res.status(500).json({
-      message: "Payment failed",
+      message: "Payment creation failed",
+
+      error: error.message,
     });
   }
 };

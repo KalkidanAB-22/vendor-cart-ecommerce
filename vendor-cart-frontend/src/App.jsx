@@ -20,6 +20,8 @@ import AdminInventory from "./pages/AdminInventory";
 import AdminOrders from "./pages/AdminOrders";
 import SalesOverview from "./pages/SalesOverview";
 import Inventory from "./pages/Inventory";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import PaymentCancel from "./pages/PaymentCancel";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -126,6 +128,9 @@ export default function App() {
           <Route path="/admin/inventory" element={<Inventory />} />
 
           <Route path="/profile" element={<Profile />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
+
+          <Route path="/payment-cancel" element={<PaymentCancel />} />
         </Routes>
       </main>
     </div>
