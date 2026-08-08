@@ -1,15 +1,17 @@
 const { body } = require("express-validator");
 
 exports.paymentValidation = [
-  body("order_id").notEmpty().isInt().withMessage("Invalid order"),
+  body("payment_method").notEmpty().withMessage("Payment method is required"),
 
-  body("amount")
-    .isFloat({
-      min: 0,
-    })
-    .withMessage("Invalid amount"),
+  body("items").isArray({ min: 1 }).withMessage("Items are required"),
 
-  body("payment_method")
-    .isIn(["card", "paypal", "cash"])
-    .withMessage("Invalid payment method"),
+  body("items.*.name").notEmpty().withMessage("Product name is required"),
+
+  body("items.*.price")
+    .isNumeric()
+    .withMessage("Product price must be a number"),
+
+  body("items.*.quantity")
+    .isInt({ min: 1 })
+    .withMessage("Quantity must be valid"),
 ];
