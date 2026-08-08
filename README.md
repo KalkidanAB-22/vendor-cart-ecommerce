@@ -62,13 +62,9 @@
 
 <img src="./screenshots/Database.png" width="900" />
 
-## Database Tables
-
-<img src="./screenshots/DatabaseTables.png" width="900" />
-
 ## API Testing
 
-<img src="./screenshots/API.png" width="900" />
+<img src="./screenshots/APITesting.png" width="900" />
 
 ---
 
