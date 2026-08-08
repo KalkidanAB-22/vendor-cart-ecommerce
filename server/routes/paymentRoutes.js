@@ -10,9 +10,8 @@ const { paymentValidation } = require("../validators/paymentValidator");
 
 const validate = require("../middleware/validateMiddleware");
 
-// Create payment
+// Create Stripe payment session
 
-router.post("/", protect, createPayment);
-router.post("/", protect, paymentValidation, validate, createPayment);
+router.post("/create", protect, paymentValidation, validate, createPayment);
 
 module.exports = router;
