@@ -44,11 +44,11 @@
 
 ## User Profile
 
-<img src="./screenshots/Profile" width="900" />
+<img src="./screenshots/Profile.png" width="900" />
 
 ## Admin Dashboard
 
-<img src="./screenshots/adminDashboard.png" width="900" />
+<img src="./screenshots/AdminDashboard.png" width="900" />
 
 ## Inventory Management
 
