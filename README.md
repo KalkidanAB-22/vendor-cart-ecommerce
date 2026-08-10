@@ -582,3 +582,9 @@ https://github.com/KalkidanAB-22
 🚀 Active Development
 
 Vendor-Cart is continuously improving toward a production-ready e-commerce platform.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+You are free to use, modify, and distribute this software with proper attribution.
