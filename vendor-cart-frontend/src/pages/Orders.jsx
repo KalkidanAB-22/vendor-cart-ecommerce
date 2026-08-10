@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../api/client";
 
 export default function Orders() {
   const [orders, setOrders] = useState([]);
+
+  const navigate = useNavigate();
 
   async function loadOrders() {
     const data = await api("/orders");
@@ -79,15 +82,22 @@ font-bold
                 Order #{order.id}
               </h2>
 
-              <p
-                className="
-text-gray-300
-mt-2
+              <p className="text-gray-300 mt-2">Status: {order.status}</p>
+
+              {order.status === "pending" && (
+                <button
+                  onClick={() => navigate(`/payment/${order.id}`)}
+                  className="
+bg-green-600
+hover:bg-green-500
+px-4
+py-2
+rounded-xl
 "
-              >
-                Status:
-                {order.status}
-              </p>
+                >
+                  Pay Now
+                </button>
+              )}
 
               <p
                 className="

@@ -4,14 +4,24 @@ import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 
-export default function Navbar() {
+export default function Navbar({ minimal }) {
   const { cartCount } = useCart();
   const { user, logout } = useAuth();
 
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-black/40 backdrop-blur-xl border-b border-white/10">
+    <nav
+      className="
+    sticky
+    top-0
+    z-50
+    backdrop-blur-xl
+    bg-black/40
+    border-b
+    border-white/10
+  "
+    >
       <div
         className="
         max-w-7xl
@@ -55,6 +65,13 @@ export default function Navbar() {
           gap-6
           "
         >
+          {!minimal && (
+            <>
+              {/* cart */}
+              {/* orders */}
+              {/* profile */}
+            </>
+          )}
           <NavLink to="/">Home</NavLink>
 
           {!user ? (

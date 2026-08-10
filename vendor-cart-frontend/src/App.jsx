@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
+import MainLayout from "./components/MainLayout";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -20,6 +20,7 @@ import AdminInventory from "./pages/AdminInventory";
 import AdminOrders from "./pages/AdminOrders";
 import SalesOverview from "./pages/SalesOverview";
 import Inventory from "./pages/Inventory";
+
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentCancel from "./pages/PaymentCancel";
 
@@ -27,112 +28,112 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
   return (
-    <div
-      className="
-      min-h-screen
-      bg-transparent
-      text-white
-      "
-    >
-      <Navbar />
+    <Routes>
+      <Route element={<MainLayout />}>
+        {/* CUSTOMER ROUTES */}
 
-      <main
-        className="
-        min-h-screen
-        "
-      >
-        <Routes>
-          <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
 
-          <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
 
-          <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register />} />
 
-          <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart />} />
 
-          <Route path="/checkout" element={<Checkout />} />
+        {/* CHECKOUT */}
 
-          <Route path="/payment/:id" element={<Payment />} />
+        <Route path="/checkout" element={<Checkout />} />
 
-          <Route path="/invoice/:id" element={<Invoice />} />
+        <Route path="/checkout/:orderId" element={<Checkout />} />
 
-          <Route path="/orders" element={<Orders />} />
+        <Route path="/payment/:id" element={<Payment />} />
 
-          {/* ADMIN ROUTES */}
+        <Route path="/invoice/:id" element={<Invoice />} />
 
-          <Route
-            path="/admin"
-            element={
-              <ProtectedRoute adminOnly>
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
+        <Route path="/orders" element={<Orders />} />
 
-          <Route
-            path="/admin/products"
-            element={
-              <ProtectedRoute adminOnly>
-                <AdminProducts />
-              </ProtectedRoute>
-            }
-          />
+        <Route path="/profile" element={<Profile />} />
 
-          <Route
-            path="/admin/products/add"
-            element={
-              <ProtectedRoute adminOnly>
-                <AddProduct />
-              </ProtectedRoute>
-            }
-          />
+        {/* PAYMENT RESULTS */}
 
-          <Route
-            path="/admin/products/edit/:id"
-            element={
-              <ProtectedRoute adminOnly>
-                <EditProduct />
-              </ProtectedRoute>
-            }
-          />
+        <Route path="/payment-success" element={<PaymentSuccess />} />
 
-          <Route
-            path="/admin/inventory"
-            element={
-              <ProtectedRoute adminOnly>
-                <AdminInventory />
-              </ProtectedRoute>
-            }
-          />
+        <Route path="/payment-cancel" element={<PaymentCancel />} />
 
-          <Route
-            path="/admin/orders"
-            element={
-              <ProtectedRoute adminOnly>
-                <AdminOrders />
-              </ProtectedRoute>
-            }
-          />
+        {/* ADMIN ROUTES */}
 
-          <Route
-            path="/admin/sales"
-            element={
-              <ProtectedRoute adminOnly>
-                <SalesOverview />
-              </ProtectedRoute>
-            }
-          />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute adminOnly>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
 
-          <Route path="/admin/orders" element={<AdminOrders />} />
+        <Route
+          path="/admin/products"
+          element={
+            <ProtectedRoute adminOnly>
+              <AdminProducts />
+            </ProtectedRoute>
+          }
+        />
 
-          <Route path="/admin/inventory" element={<Inventory />} />
+        <Route
+          path="/admin/products/add"
+          element={
+            <ProtectedRoute adminOnly>
+              <AddProduct />
+            </ProtectedRoute>
+          }
+        />
 
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/payment-success" element={<PaymentSuccess />} />
+        <Route
+          path="/admin/products/edit/:id"
+          element={
+            <ProtectedRoute adminOnly>
+              <EditProduct />
+            </ProtectedRoute>
+          }
+        />
 
-          <Route path="/payment-cancel" element={<PaymentCancel />} />
-        </Routes>
-      </main>
-    </div>
+        <Route
+          path="/admin/inventory"
+          element={
+            <ProtectedRoute adminOnly>
+              <AdminInventory />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/orders"
+          element={
+            <ProtectedRoute adminOnly>
+              <AdminOrders />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/sales"
+          element={
+            <ProtectedRoute adminOnly>
+              <SalesOverview />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/inventory-management"
+          element={
+            <ProtectedRoute adminOnly>
+              <Inventory />
+            </ProtectedRoute>
+          }
+        />
+      </Route>
+    </Routes>
   );
 }
