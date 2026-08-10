@@ -121,7 +121,7 @@ https://vendor-cart-app.vercel.app
 ## Backend API
 
 ```
-https://vendor-cart-api-production.up.railway.app
+https://vendor-cart-api.vercel.app
 ```
 
 ---
@@ -481,7 +481,7 @@ VITE_API_URL=http://localhost:10000
 Production:
 
 ```env
-VITE_API_URL=https://vendor-cart-api-production.up.railway.app
+VITE_API_URL=https://vendor-cart-api.vercel.app
 ```
 
 ---
