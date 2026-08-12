@@ -62,7 +62,7 @@ app.use("/sales", salesRoutes);
 
 app.get("/", (req, res) => {
   res.json({
-    message: "Vendor Cart API is running 🚀",
+    message: "Vendor Cart API is running",
     status: "healthy",
   });
 });
@@ -114,18 +114,17 @@ module.exports = app;
 // Local Development Only
 // --------------------
 
-if (require.main === module) {
-  const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 10000;
 
-  app.listen(PORT, async () => {
+if (require.main === module) {
+  app.listen(PORT, "0.0.0.0", async () => {
     console.log(`Server running on port ${PORT}`);
 
     try {
       await pool.query("SELECT 1");
-
-      console.log("PostgreSQL connected successfully ✅");
+      console.log("PostgreSQL connected successfully");
     } catch (error) {
-      console.error("PostgreSQL connection failed ❌", error.message);
+      console.error("PostgreSQL connection failed", error.message);
     }
   });
 }

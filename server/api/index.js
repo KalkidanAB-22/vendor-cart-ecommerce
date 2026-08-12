@@ -1,5 +1,1 @@
-require("dotenv").config();
-
-const app = require("../index");
-
-module.exports = app;
+module.exports = require("../index.js");
