@@ -1,239 +1,232 @@
 # 🛒 Vendor-Cart
 
-## Full Stack E-Commerce Platform
+## Full-Stack E-Commerce Platform
+
+<p align="center">
+  A modern full-stack e-commerce platform built with React, Express.js, PostgreSQL, Stripe, and Cloudinary.
+</p>
+
+<p align="center">
+  <img src="./screenshots/vendor-cart-logo.png" width="180" alt="Vendor-Cart Logo"/>
+</p>
 
 ---
 
-# 📸 Project Preview
+## 🌐 Live Demo
 
-## Homepage
+### Frontend
 
-## Product Details
+**https://vendor-cart-app.vercel.app**
 
-## Product Search
+### Backend API
 
-## Shopping Cart
+**https://vendor-cart-ecommerce-d12v.vercel.app**
 
-## Checkout Page
-
-## Payment Selection
-
-## Stripe Checkout
-
-## User Profile
-
-## Orders & Payment
-
-## Admin Dashboard
-
-## Inventory Management
-
-## Order Management
-
-## Database
-
-## API Testing
+> Vendor-Cart is deployed with a Vercel frontend communicating with a production Express REST API.
 
 ---
 
-# 📌 Overview
+## 📸 Project Preview
 
-Vendor-Cart is a full-stack e-commerce platform designed to demonstrate a complete production-style shopping experience.
+### Homepage
 
-The application provides a complete flow between:
+<img src="./screenshots/HomePage.png" width="900" alt="Vendor-Cart Homepage"/>
+
+### Product Details
+
+<img src="./screenshots/ProductDetails.png" width="900" alt="Product Details"/>
+
+### Product Search
+
+<img src="./screenshots/Search.png" width="900" alt="Product Search"/>
+
+### Shopping Cart
+
+<img src="./screenshots/Cart.png" width="900" alt="Shopping Cart"/>
+
+### Checkout Page
+
+<img src="./screenshots/Checkout.png" width="900" alt="Checkout Page"/>
+
+### Payment Selection
+
+<img src="./screenshots/Payment.png" width="900" alt="Payment Selection"/>
+
+### Stripe Checkout
+
+<img src="./screenshots/StripeCheckout.png" width="900" alt="Stripe Checkout"/>
+
+### User Profile
+
+<img src="./screenshots/Profile.png" width="900" alt="User Profile"/>
+
+### Admin Dashboard
+
+<img src="./screenshots/AdminDashboard.png" width="900" alt="Admin Dashboard"/>
+
+### Inventory Management
+
+<img src="./screenshots/InventoryManagement.png" width="900" alt="Inventory Management"/>
+
+### Order Management
+
+<img src="./screenshots/OrdersManagement.png" width="900" alt="Order Management"/>
+
+### Database
+
+<img src="./screenshots/Database.png" width="900" alt="Database"/>
+
+### API Testing
+
+<img src="./screenshots/APITesting.png" width="900" alt="API Testing"/>
+
+---
+
+## 📌 Overview
+
+Vendor-Cart is a full-stack e-commerce application designed to demonstrate a complete production-style shopping experience.
+
+The platform connects a React frontend with an Express REST API, PostgreSQL database, Cloudinary image storage, and Stripe payment processing.
+
+The project focuses on real-world full-stack development concepts including authentication, authorization, database relationships, shopping cart management, order processing, payment integration, image uploads, API validation, and production deployment.
+
+### Application Architecture
 
 ```text
-React Frontend
-        |
-        ↓
-Express REST API
-        |
-        ↓
-PostgreSQL Database
-        |
-        ↓
-Cloud Services
-        |
-        ↓
-Stripe Payment Gateway
+                    React Frontend
+                          │
+                          ▼
+                   Express REST API
+                          │
+                          ▼
+                  PostgreSQL Database
+                    │             │
+                    ▼             ▼
+                Cloudinary      Stripe
 ```
 
-Customers can:
+### Customers Can
 
 - Browse products
 - Search products
 - Filter products by category
 - Create accounts
-- Authenticate securely using JWT
-- Manage shopping carts
+- Log in securely
+- Manage their profiles
+- Add products to their cart
 - Update cart quantities
 - Place orders
+- Complete checkout
+- Make payments through Stripe
 - View order history
-- Return to pending orders
-- Continue payment for existing orders
-- Complete payments through Stripe
-- Manage their profiles
+- Continue payment for pending orders
 
-Administrators can:
+### Administrators Can
 
+- Access the admin dashboard
 - Manage products
 - Upload product images
-- Control inventory
+- Update product information
+- Delete products
+- Manage inventory
 - Manage customer orders
 - Monitor sales
 
 ---
 
-# 🌐 Live Demo
+## ✨ Features
 
-## Frontend
+### 👤 Customer Features
 
-```text
-https://vendor-cart-app.vercel.app
-```
+- User registration
+- User login
+- JWT authentication
+- Protected routes
+- User profile management
+- Product browsing
+- Product searching
+- Category filtering
+- Cloudinary product images
+- Shopping cart management
+- Cart quantity updates
+- Order creation
+- Checkout workflow
+- Stripe payment integration
+- Order history
+- Pay Now functionality for pending orders
+- Responsive interface
 
-## Backend API
+### 🛠️ Admin Features
 
-```text
-https://vendor-cart-api.vercel.app
-```
-
----
-
-# ✨ Features
-
-## 👤 Customer Features
-
-✅ User registration
-
-✅ User login
-
-✅ JWT authentication
-
-✅ Protected routes
-
-✅ User profile
-
-✅ Product browsing
-
-✅ Product searching
-
-✅ Category filtering
-
-✅ Cloudinary product images
-
-✅ Shopping cart
-
-✅ Cart quantity updates
-
-✅ Order creation
-
-✅ Order history
-
-✅ Pending order management
-
-✅ Continue payment for pending orders
-
-✅ Centralized checkout flow
-
-✅ Stripe payment integration
-
-✅ Payment success and cancellation handling
+- Admin authentication
+- Role-based authorization
+- Admin dashboard
+- Product creation
+- Product updating
+- Product deletion
+- Inventory management
+- Product image upload
+- Order management
+- Sales monitoring
 
 ---
 
-# 🛒 Shopping & Checkout
+## 💳 Payment System
 
-Vendor-Cart separates the shopping experience from the payment experience to provide a cleaner checkout flow.
+Vendor-Cart currently supports **Stripe Checkout** for online payments.
 
-### Shopping Flow
+The payment workflow is designed to separate order creation from payment processing while allowing customers to continue payment for pending orders.
 
-```text
-Browse Products
-      ↓
-Add To Cart
-      ↓
-Shopping Cart
-      ↓
-Checkout
-      ↓
-Place Order
-      ↓
-Stripe Checkout
-```
-
-### Existing Order Payment Flow
-
-Customers can also continue payment for an existing pending order:
-
-```text
-Orders
-   ↓
-Pending Order
-   ↓
-Pay Now
-   ↓
-Checkout
-   ↓
-Stripe Checkout
-```
-
-This allows customers to return to an unpaid order instead of having to create another order.
-
-### Checkout Features
-
-- Payment method selection
-- Order creation from the cart
-- Existing pending order payment
-- Server-side order total calculation
-- Stripe Checkout session creation
-- Payment success handling
-- Payment cancellation handling
-- Protected payment endpoints
-
----
-
-# 💳 Payment System
-
-Vendor-Cart currently supports:
-
-## Stripe Payment
-
-The application uses Stripe Checkout for secure card payments.
-
-Payment flow:
+### New Checkout Flow
 
 ```text
 Customer Checkout
-        ↓
+       │
+       ▼
 Select Stripe
-        ↓
+       │
+       ▼
 Create Order
-        ↓
+       │
+       ▼
 Create Stripe Checkout Session
-        ↓
+       │
+       ▼
 Stripe Checkout
-        ↓
+       │
+       ▼
 Payment
-        ↓
+       │
+       ▼
 Payment Success
 ```
 
-For existing pending orders:
+### Existing Pending Orders
+
+Customers can also continue payment for an existing pending order.
 
 ```text
 Orders
-        ↓
+   │
+   ▼
 Pay Now
-        ↓
-Existing Order
-        ↓
-Create Stripe Session
-        ↓
+   │
+   ▼
+Existing Pending Order
+   │
+   ▼
+Create Stripe Checkout Session
+   │
+   ▼
 Stripe Checkout
+   │
+   ▼
+Payment
 ```
 
-Future payment integrations:
+### Future Payment Integrations
+
+Planned payment options include:
 
 - Telebirr
 - CBE Birr
@@ -241,166 +234,75 @@ Future payment integrations:
 
 ---
 
-# 📦 Order Management
+## 🔐 Authentication & Authorization
 
-Customers can:
+Vendor-Cart uses **JWT-based authentication** combined with **role-based authorization**.
 
-- Create orders from their shopping cart
-- View their order history
-- View order status
-- View order totals
-- Remove orders
-- Continue payment for pending orders
-
-Orders use server-side cart data and pricing to calculate totals rather than trusting totals submitted by the frontend.
-
-Order lifecycle:
-
-```text
-Cart
- ↓
-Pending Order
- ↓
-Payment
- ↓
-Completed Order
-```
-
----
-
-# 🔐 Authentication System
-
-Vendor-Cart uses JWT authentication.
-
-Authentication flow:
+### Authentication Flow
 
 ```text
 User Login
-      ↓
-Backend verifies credentials
-      ↓
+     │
+     ▼
+Backend Verifies Credentials
+     │
+     ▼
 JWT Token Generated
-      ↓
-Token Stored In Frontend
-      ↓
-Protected Routes Become Available
+     │
+     ▼
+Token Stored in Frontend
+     │
+     ▼
+Protected API Requests
+     │
+     ▼
+Authorized Application Access
 ```
 
-User roles:
+### User Roles
 
-| Role     | Permissions                               |
-| -------- | ----------------------------------------- |
-| Customer | Browse products, cart, checkout, orders   |
-| Admin    | Manage products, inventory, orders, sales |
+| Role     | Permissions                                               |
+| -------- | --------------------------------------------------------- |
+| Customer | Browse products, manage cart, checkout, and manage orders |
+| Admin    | Manage products, inventory, orders, and sales             |
 
 ---
 
-# 🖼️ Image Management
+## 🖼️ Image Management
 
-Product images are managed using Cloudinary.
+Product images are managed using **Cloudinary**.
 
-Flow:
+### Image Upload Flow
 
 ```text
-Admin uploads image
-        ↓
-Cloudinary stores image
-        ↓
-Image URL saved in database
-        ↓
-Frontend displays image
+Admin Uploads Image
+        │
+        ▼
+Cloudinary Stores Image
+        │
+        ▼
+Image URL Saved in Database
+        │
+        ▼
+Frontend Retrieves Image URL
+        │
+        ▼
+Product Image Displayed
 ```
 
-Benefits:
+### Benefits
 
+- Cloud-based image storage
 - Fast image delivery
-- Cloud storage
-- No local image dependency
-- Production-ready asset handling
+- No dependency on local image files
+- Production-oriented asset management
+- Easier image management for administrators
 
 ---
 
-# 🎨 User Interface
+## 🏗️ Tech Stack
 
-Vendor-Cart uses a modern glassmorphism-inspired interface designed around a consistent shopping experience.
-
-UI features include:
-
-- Responsive layouts
-- Glass-style cards
-- Consistent buttons and forms
-- Responsive navigation
-- Sticky navigation while browsing
-- Dedicated checkout layout
-- Responsive order management
-- Customer-focused checkout experience
-- Dedicated footer for the main shopping experience
-
-### Layout Strategy
-
-Main shopping pages use:
-
-```text
-Navbar
-   ↓
-Page Content
-   ↓
-Footer
-```
-
-Checkout uses a simplified layout:
-
-```text
-Minimal Navbar
-      ↓
-Checkout
-```
-
-Stripe Checkout is handled externally by Stripe.
-
----
-
-# 🛠️ Admin Features
-
-## 🔑 Admin Authentication
-
-✅ Admin authentication
-
-✅ Role-based authorization
-
-## 📦 Product Management
-
-✅ Create products
-
-✅ Update products
-
-✅ Delete products
-
-✅ Product image upload
-
-## 📊 Inventory Management
-
-✅ Inventory management
-
-✅ Stock monitoring
-
-## 🧾 Order Management
-
-✅ View customer orders
-
-✅ Manage order status
-
-## 📈 Sales Monitoring
-
-✅ Sales overview
-
-✅ Sales monitoring
-
----
-
-# 🏗️ Tech Stack
-
-## Frontend
+### Frontend
 
 - React
 - Vite
@@ -409,80 +311,92 @@ Stripe Checkout is handled externally by Stripe.
 - Context API
 - JavaScript
 
-## Backend
+### Backend
 
 - Node.js
 - Express.js
 - REST API
 - JWT Authentication
+- Express Middleware
 - Express Validator
-- Middleware Architecture
 
-## Database
+### Database
 
 - PostgreSQL
 - Supabase
 
-## Cloud Services
+### Cloud & External Services
 
+- Vercel
 - Cloudinary
 - Stripe
-- Vercel
-- Railway
+- Supabase
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
 ```text
-Vendor-Cart
+Vendor-Cart/
 │
-├── server
-│   ├── controllers
-│   ├── routes
-│   ├── middleware
-│   ├── validators
+├── server/
+│   ├── controllers/
+│   ├── routes/
+│   ├── middleware/
+│   ├── validators/
+│   ├── api/
 │   ├── db.js
 │   ├── index.js
+│   ├── vercel.json
 │   └── package.json
 │
-├── vendor-cart-frontend
-│   ├── src
-│   │   ├── components
-│   │   ├── pages
-│   │   ├── context
-│   │   ├── api
-│   │   └── assets
+├── vendor-cart-frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── context/
+│   │   ├── api/
+│   │   └── assets/
 │   │
 │   ├── vite.config.js
 │   └── package.json
 │
-├── screenshots
+├── screenshots/
+│   ├── HomePage.png
+│   ├── ProductDetails.png
+│   ├── Search.png
+│   ├── Cart.png
+│   ├── Checkout.png
+│   ├── Payment.png
+│   ├── StripeCheckout.png
+│   ├── Profile.png
+│   ├── AdminDashboard.png
+│   ├── InventoryManagement.png
+│   ├── OrdersManagement.png
+│   ├── Database.png
+│   ├── APITesting.png
+│   └── vendor-cart-logo.png
 │
 ├── .gitignore
-│
-├── LICENSE
-│
 └── README.md
 ```
 
 ---
 
-# ⚙️ Installation Guide
+## ⚙️ Installation Guide
 
-## Clone Repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/KalkidanAB-22/vendor-cart.git
-
 cd Vendor-Cart
 ```
 
 ---
 
-# Frontend Setup
+## 💻 Frontend Setup
 
-Navigate to the frontend:
+Navigate to the frontend directory:
 
 ```bash
 cd vendor-cart-frontend
@@ -494,7 +408,7 @@ Install dependencies:
 npm install
 ```
 
-Run the development server:
+Start the development server:
 
 ```bash
 npm run dev
@@ -508,9 +422,9 @@ http://localhost:5173
 
 ---
 
-# Backend Setup
+## 🖥️ Backend Setup
 
-Navigate to the server:
+Open another terminal and navigate to the backend:
 
 ```bash
 cd server
@@ -522,7 +436,7 @@ Install dependencies:
 npm install
 ```
 
-Run the backend:
+Start the backend:
 
 ```bash
 npm start
@@ -536,9 +450,11 @@ http://localhost:10000
 
 ---
 
-# 🔑 Environment Variables
+## 🔑 Environment Variables
 
-## Backend `.env`
+### Backend `.env`
+
+Create a `.env` file inside the `server` directory.
 
 ```env
 DATABASE_URL=your_postgresql_connection_string
@@ -547,82 +463,184 @@ PORT=10000
 
 CLIENT_URL=http://localhost:5173
 
-JWT_SECRET=your_secret
+JWT_SECRET=your_jwt_secret
 
-
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-
-CLOUDINARY_API_KEY=your_api_key
-
-CLOUDINARY_API_SECRET=your_api_secret
-
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
 STRIPE_SECRET_KEY=your_stripe_secret_key
 ```
 
----
+> Never commit your `.env` file or real API keys, database credentials, JWT secrets, Cloudinary credentials, or Stripe secrets to GitHub.
 
-## Frontend `.env`
+### Frontend `.env`
+
+Create a `.env` file inside `vendor-cart-frontend`.
+
+#### Development
 
 ```env
 VITE_API_URL=http://localhost:10000
 ```
 
-Production:
+#### Production
 
 ```env
-VITE_API_URL=https://vendor-cart-api.vercel.app
+VITE_API_URL=https://vendor-cart-ecommerce-d12v.vercel.app
+```
+
+The production frontend must use the deployed backend API instead of `localhost`.
+
+---
+
+## 🚀 Deployment
+
+### Frontend
+
+**Platform:** Vercel
+
+**Live Application:**
+
+https://vendor-cart-app.vercel.app
+
+### Backend
+
+**Platform:** Vercel
+
+**Production API:**
+
+https://vendor-cart-ecommerce-d12v.vercel.app
+
+### Database
+
+**Platform:** Supabase PostgreSQL
+
+### Product Images
+
+**Service:** Cloudinary
+
+### Payments
+
+**Service:** Stripe
+
+---
+
+## 🧩 Deployment Challenges
+
+Deploying Vendor-Cart introduced several real-world deployment problems that required debugging beyond simply building the application.
+
+### 1. Frontend-to-Backend Configuration
+
+During development, the frontend communicated with the local backend:
+
+```text
+http://localhost:10000
+```
+
+This worked locally because the Express server was running on the development machine.
+
+However, the production frontend could not communicate with `localhost` on the developer's computer.
+
+The API client was therefore configured to use the deployed production backend.
+
+#### Development
+
+```text
+React Frontend
+      │
+      ▼
+localhost:10000
+      │
+      ▼
+Local Express Server
+```
+
+#### Production
+
+```text
+Vercel Frontend
+      │
+      ▼
+Production API URL
+      │
+      ▼
+Vercel Express Backend
 ```
 
 ---
 
-# 🚀 Deployment
+### 2. CORS Configuration
 
-## Frontend
+The backend required CORS configuration to allow requests from the deployed frontend.
 
-Hosted on:
+The API was configured to support both:
 
-```text
-Vercel
-```
+- Local development
+- Production frontend requests
 
-## Backend
-
-Hosted on:
-
-```text
-Vercel / Railway
-```
-
-## Database
-
-Hosted on:
-
-```text
-Supabase PostgreSQL
-```
-
-## Images
-
-Hosted on:
-
-```text
-Cloudinary
-```
-
-## Payments
-
-Powered by:
-
-```text
-Stripe
-```
+This helped resolve cross-origin request problems between the deployed frontend and backend.
 
 ---
 
-# 🧠 What I Learned
+### 3. Vercel Backend Deployment
 
-Building Vendor-Cart helped me improve:
+The Express backend required additional configuration to work correctly with Vercel's serverless environment.
+
+The deployment required:
+
+- An `api/index.js` entry point
+- A `vercel.json` configuration
+- Correct route handling
+- Production environment variables
+- Proper database configuration
+
+---
+
+### 4. Production Environment Variables
+
+The deployment required environment variables to be configured separately from local development.
+
+Sensitive values included:
+
+- PostgreSQL connection strings
+- JWT secrets
+- Cloudinary credentials
+- Stripe secret keys
+
+These values must be configured through the deployment platform instead of being committed to the repository.
+
+---
+
+### 5. Debugging Production API Failures
+
+One of the most important deployment issues was discovering that the production frontend was still attempting to make requests to:
+
+```text
+http://localhost:10000
+```
+
+This resulted in errors such as:
+
+```text
+ERR_CONNECTION_REFUSED
+```
+
+and:
+
+```text
+Failed to fetch
+```
+
+The issue was traced to the frontend API configuration and corrected so that production requests use the deployed backend.
+
+This experience reinforced the difference between **local development** and **production deployment** and the importance of environment-specific configuration.
+
+---
+
+## 🧠 What I Learned
+
+Building Vendor-Cart helped strengthen my understanding of:
 
 - Full-stack application architecture
 - React component design
@@ -642,49 +660,51 @@ Building Vendor-Cart helped me improve:
 - Responsive UI development
 - Layout and navigation design
 - Environment configuration
-- Deployment workflows
+- Production API configuration
+- CORS configuration
+- Vercel deployment
+- Serverless backend deployment
 - Debugging production issues
+- Separating development and production environments
 
 ---
 
-# 🚧 Future Improvements
+## 🚧 Future Improvements
 
-Planned upgrades:
+Planned upgrades include:
 
 - Telebirr integration
-- CBE payment integration
+- CBE Birr integration
 - Product reviews
 - Wishlist system
 - Email notifications
 - Advanced analytics dashboard
-- Recommendation system
+- Product recommendation system
 - Real-time order tracking
 - Mobile application
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
-## Kalkidan Abebe
+### Kalkidan Abebe
 
 GitHub:
 
-```text
 https://github.com/KalkidanAB-22
-```
 
 ---
 
-# ⭐ Project Status
+## ⭐ Project Status
 
-🚀 Active Development
+**🚀 Active Development**
 
-Vendor-Cart is continuously improving toward a production-ready e-commerce platform.
+Vendor-Cart is continuously improving toward a more production-ready e-commerce platform.
 
 ---
 
-# 📄 License
+## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
 
 You are free to use, modify, and distribute this software with proper attribution.
