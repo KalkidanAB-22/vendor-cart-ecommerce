@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:10000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:10000";
 
 async function api(endpoint, options = {}) {
   try {
@@ -27,7 +27,6 @@ async function api(endpoint, options = {}) {
     return data;
   } catch (error) {
     console.error("API Error:", error.message);
-
     throw error;
   }
 }
